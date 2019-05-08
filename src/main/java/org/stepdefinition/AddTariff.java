@@ -12,17 +12,15 @@ import junit.framework.Assert;
 public class AddTariff extends AddTariffPage{
 	
 	
-	
+	AddTariffPage ap = new AddTariffPage();
 	
 	@Given("the user is in the add tariff plans")
 	public void the_user_is_in_the_add_tariff_plans() {
-		AddTariffPage ap = new AddTariffPage();
 		ap.sendUrl("http://demo.guru99.com/telecom/addtariffplans.php");
 	}
 	
 	@When("the user enters vaild field values")
 	public void the_user_enters_vaild_field_values() {
-		AddTariffPage ap = new AddTariffPage();
 		ap.enterText(ap.getRental(), "111");
 		ap.enterText(ap.getLocMins(), "222");
 		ap.enterText(ap.getIntMins(), "333");
@@ -35,7 +33,6 @@ public class AddTariff extends AddTariffPage{
 
 	@Then("user plan is added")
 	public void user_plan_is_added() {
-		AddTariffPage ap = new AddTariffPage();
 		Assert.assertTrue(ap.text(ap.getCong()).contains("Congratulation"));
 	}
 }
